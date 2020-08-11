@@ -28,6 +28,6 @@ function runProgram(){
         let entertainmentNumber = pickRandomIndexFromArray(formOfEntertainment);
         let entertainmentPicked = pickRandomIndexFromArray(formOfEntertainment, entertainmentNumber);
         let checkResponse = prompt("Would you like to select another day trip?")
-        let responseToContinue = 
+        let responseToContinue = c
     }
 }
