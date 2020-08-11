@@ -1,13 +1,6 @@
 "use strict"
-let citiesArray = [];
-let restaurantsArray = [];
-let modeOfTransportation = [];
-let formOfEntertainment = [];
-
 
 runProgram();
-
-
 
 function pickRandomNumberBasedOnArraySize(arrayToFindRandomValue){
     let selectionFromArray;
@@ -24,13 +17,13 @@ function runProgram(){
     let responseToContinue;
     while(!responseToContinue){
         
-        citiesArray = ["Madison", "Port Washington", "Kenosha", "Green Bay", "Milwaukee"];
+        let citiesArray = ["Madison", "Port Washington", "Kenosha", "Green Bay", "Milwaukee"];
         let cityPicked = pickRandomIndexFromArray(citiesArray, pickRandomNumberBasedOnArraySize(citiesArray));
-        restaurantsArray = ["Steak and Shake", "Five O Clock", "Chili's", "Public Market"];
+        let restaurantsArray = ["Steak and Shake", "Five O Clock", "Chili's", "Public Market"];
         let restaurantPicked = pickRandomIndexFromArray(restaurantsArray, pickRandomNumberBasedOnArraySize(restaurantsArray));
-        modeOfTransportation = ["Beat feet", "Scooter", "Car", "Hot Air Balloon"];
+        let modeOfTransportation = ["Beat feet", "Scooter", "Car", "Hot Air Balloon"];
         let modeOfTransportationPicked = pickRandomIndexFromArray(modeOfTransportation, pickRandomNumberBasedOnArraySize(modeOfTransportation));
-        formOfEntertainment = ["Movie", "Football Game", "Roller Blading", "Downtown Tour"];
+        let formOfEntertainment = ["Movie", "Football Game", "Roller Blading", "Downtown Tour"];
         let entertainmentPicked = pickRandomIndexFromArray(formOfEntertainment, pickRandomNumberBasedOnArraySize(formOfEntertainment));
   
         let usersDayTrip = `Have fun going to ${cityPicked}, eating at ${restaurantPicked}, getting there by 
