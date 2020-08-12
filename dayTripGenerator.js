@@ -32,21 +32,33 @@ function randomDayTrip{
         let formOfEntertainment = ["Movie", "Football Game", "Roller Blading", "Downtown Tour"];
         let entertainmentPicked = pickRandomIndexFromArray(formOfEntertainment, pickRandomNumberBasedOnArraySize(formOfEntertainment));
   
-        let usersDayTrip = `Have fun going to ${cityPicked}, eating at ${restaurantPicked}, getting there by 
-        ${modeOfTransportationPicked}, and being entertained by ${entertainmentPicked}`;
-        console.log(usersDayTrip);
+       
         randomDayTripArray = [cityPicked, restaurantPicked,modeOfTransportationPicked,entertainmentPicked];
-        let checkResponse = prompt("Would you like to select another day trip? Please type, yes or no");
+        let checkResponse = prompt("Would you like to select another random day trip? Please type, yes or no");
+        if(checkResponse !== "yes"){
+            let askAboutCustomTrip = prompt(`Would you like to keep some parts of this trip and change some others?`);
+            if(askAboutCustomTrip === "yes"){
+                return customTrip(randomDayTripArray, citiesArray, restaurantsArray, modeOfTransportation, formOfEntertainment));
+            }
+        }
         responseToContinue = checkResponse == "yes" ? null : true;
-        let askToModifyTrip = prompt("Would you like to keep some parts of this trip and change some others?")
-        if(askToModifyTrip === "yes"){
-            return customTrip(randomDayTripArray, citiesArray, restaurantsArray, modeOfTransportation, formOfEntertainment)
-        } 
+        
+        
 
     }
 }
 function displayTrip(selectedTripArray){
-    
+    let usersDayTrip = `Have fun going to ${cityPicked}, eating at ${restaurantPicked}, getting there by 
+    ${modeOfTransportationPicked}, and being entertained by ${entertainmentPicked}`;
+    alert(usersDayTrip);
+
+}
+function displayCustomTrip(selectedTripArray){
+    let askToModifyTrip = prompt("Would you like to keep some parts of this trip and change some others?")
+    if(askToModifyTrip === "yes"){
+        return customTrip(randomDayTripArray, citiesArray, restaurantsArray, modeOfTransportation, formOfEntertainment)
+    } 
+
 }
 
 function customTrip(randomUserArray, citiesArray, restaurantsArray, transportationArray, entertainmentArray){
@@ -70,4 +82,6 @@ function customTrip(randomUserArray, citiesArray, restaurantsArray, transportati
             randomUserArray[3] = pickRandomIndexFromArray(entertainmentArray, pickRandomNumberBasedOnArraySize(entertainmentArray));
             break;
     }
+
+    displayTrip(randomUserArray);
 }
