@@ -48,23 +48,21 @@ function randomDayTrip(){
 
     }
 }
-function makeChoiceAboutTripGenerator(){}
+
+function askForChanges(selectedTripArray){
+    displayTrip(selectedTripArray);
+    let choiceForMoreChanges = prompt(`Would you like to make additional changes?`);
+    return choiceForMoreChanges;
+        
+
+}
+
 function displayTrip(selectedTripArray){
-    let usersDayTrip = `Have fun going to ${selectedTripArray[0]}, eating at ${selectedTripArray[1]}, getting there by 
-    ${selectedTripArray[2]}, and being entertained by ${selectedTripArray[3]}`;
-    let randomOrCustom = prompt(`Would you like to: 1: Generate another random trip
-                                                    2: Customize this current trip 
-                                                    3: Exit the program   `)
+    let usersDayTrip = `Have fun going to ${selectedTripArray[0]}, eating at ${selectedTripArray[1]}, getting there by ${selectedTripArray[2]}, and being entertained by ${selectedTripArray[3]}`;
     alert(usersDayTrip);
 
 }
-function displayCustomTrip(selectedTripArray){
-    let askToModifyTrip = prompt("Would you like to keep some parts of this trip and change some others?")
-    if(askToModifyTrip === "yes"){
-        return customTrip(randomDayTripArray, citiesArray, restaurantsArray, modeOfTransportation, formOfEntertainment)
-    } 
 
-}
 
 function customTrip(randomUserArray, citiesArray, restaurantsArray, transportationArray, entertainmentArray){
     let valueToChange;
@@ -87,6 +85,9 @@ function customTrip(randomUserArray, citiesArray, restaurantsArray, transportati
             randomUserArray[3] = pickRandomIndexFromArray(entertainmentArray, pickRandomNumberBasedOnArraySize(entertainmentArray));
             break;
     }
-
-    displayTrip(randomUserArray);
+    
+    let decionToMakeMoreChanges = askForChanges(randomUserArray);
+    if(decionToMakeMoreChanges === "yes"){
+        return customTrip(randomUserArray, citiesArray, restaurantsArray, transportationArray, entertainmentArray);
+    }
 }
